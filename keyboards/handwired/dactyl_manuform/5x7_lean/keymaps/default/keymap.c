@@ -56,33 +56,37 @@
 #define _M_LL UC(0x013A)
 #define _V_LL UC(0x0139)
 
+void matrix_init_user(void){
+  set_unicode_input_mode(UC_WIN);
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_5x7_lean(
   KC_GRV,        KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_PSCR,                                KC_6,      KC_7,      KC_8,    KC_9,    KC_0,      KC_MINS,   KC_EQL,    
   KC_TAB,        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC,                                KC_RBRC,   KC_Y,    KC_U,    KC_I,      KC_O,      KC_P,      KC_BSLS,
   KC_LSFT,       KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_LEFT,                                KC_RGHT,   KC_H,    KC_J,    KC_K,      KC_L,      KC_SCLN,   KC_QUOT,
-  KC_LCTR,       KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                       KC_N,    KC_M,    KC_COMM,   KC_DOT,    KC_SLSH,   TT(_FN),
+  KC_LCTL,       KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                                       KC_N,    KC_M,    KC_COMM,   KC_DOT,    KC_SLSH,   TT(_FN),
                  KC_ESC , KC_LGUI,                                                                                                 KC_HOME,   KC_END,
                                    MO(_FN), KC_SPC,                                                              KC_ENT, KC_DEL,
                                                               KC_UP,  KC_DOWN,               KC_BSPC, KC_RSFT,  
-                                                              TT(_SLOVAK), KC_LCTR,          KC_PGUP, KC_PGDN
+                                                              TT(_SLOVAK), KC_LCTL,          KC_PGUP, KC_PGDN
     ),
 [_FN] = LAYOUT_5x7_lean(
   KC_ESC,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-  KC_TRNS,       KC_ENT,  KC_BCK,  KC_UP,   KC_DEL,  KC_PGUP, KC_TRNS,                                KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS,   KC_LBRC,   KC_RBRC,
-  KC_F5,         KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT,KC_END,  KC_TRNS,                                KC_TRNS,   KC_TRNS, KC_BCK,  KC_DEL,    KC_TRNS,   KC_LBRC,   KC_RBRC,
-  KC_TRNS,       KC_LCTR, KC_F10,  KC_F11,  KC_F12,  KC_PGDN,                                                    KC_LALT, KC_LEFT, KC_RGHT,   KC_F5,     KC_TRNS,   KC_TRNS,
+  KC_TRNS,       KC_ENT,  KC_BSPC,  KC_UP,   KC_DEL,  KC_PGUP, KC_TRNS,                               KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,   KC_TRNS,   KC_LBRC,   KC_RBRC,
+  KC_F5,         KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT,KC_END,  KC_TRNS,                                KC_TRNS,   KC_TRNS, KC_BSPC,  KC_DEL,    KC_TRNS,   KC_LBRC,   KC_RBRC,
+  KC_TRNS,       KC_LCTL, KC_F10,  KC_F11,  KC_F12,  KC_PGDN,                                                    KC_LALT, KC_LEFT, KC_RGHT,   KC_F5,     KC_TRNS,   KC_TRNS,
                  KC_TRNS, KC_TRNS,                                                                                                 KC_TRNS,   KC_TRNS,
                                    KC_TRNS, KC_TRNS,                                                             KC_ENT,  KC_SPC,
                                                               KC_TRNS, KC_TRNS,              KC_LGUI, KC_RSFT,  
-                                                              KC_TRNS, KC_TRNS,              KC_TRNS, KC_RCTR
+                                                              KC_TRNS, KC_TRNS,              KC_TRNS, KC_RCTL
     ),
 
 [_SLOVAK] = LAYOUT_5x7_lean(
   KC_ESC,       _M_OO,    _M_L,    _M_S,    _M_C,    _M_T,    _M_D,                                   _M_Z,      _M_YY,   _M_AA,   _M_II,     _M_EE,     _M_UU,    _M_N,
   KC_TAB,       KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_TRNS,                                KC_TRNS,   KC_Z,    KC_U,    KC_I,      KC_O,      KC_P,     _M_A,
   KC_LSFT,      KC_A,     KC_S,    KC_D,    KC_F,    KC_G,    KC_LPRN,                                KC_RPRN,   KC_H,    KC_J,    KC_K,      KC_L,      _M_UO,    KC_QUOT,
-  KC_LCTR,      KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,                                                       KC_N,    KC_M,    KC_COMM,   KC_DOT,    KC_SLSH,  KC_TRNS,
+  KC_LCTL,      KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,                                                       KC_N,    KC_M,    KC_COMM,   KC_DOT,    KC_SLSH,  KC_TRNS,
                  KC_ESC ,    KC_LGUI,                                                                                                         KC_HOME,   KC_END,
                                          MO(_FN),    KC_SPC,                                                                 KC_ENT, KC_DEL,
                                                                  KC_TRNS,KC_TRNS,            KC_BSPC, MO(_SLOVAK_SHIFT),  
